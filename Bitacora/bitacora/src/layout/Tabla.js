@@ -12,7 +12,7 @@ return(
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Tipo</th>
-       <th scope="col">Activo</th>
+       <th scope="col">Estatus</th>
        <th scope="col">Descripcion</th>
     </tr>
   </thead>
@@ -26,7 +26,8 @@ return(
       <td>Pura Descripcion <button 
 className="btn btn-outline-primary mt-1 btn-block"> 
 Saber mas
-</button></td>
+</button>
+</td>
 
     </tr>
 

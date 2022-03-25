@@ -3,7 +3,9 @@ import React,{Fragment, useReducer,useEffect} from 'react';
 import Validaciones from '../Hooks/Validaciones';
 import FormularioHook  from '../Hooks/FormularioHook';
 import Navegacion from './Navegacion';
-import Tabla from '../layout/Tabla';
+
+import Registrar from '../Hooks/Registrar';
+
 import './App.css';
 
 const init=()=>{
@@ -80,8 +82,9 @@ return (
 </header>
 <hr/>
 <div className="body-navegacion">
-<Navegacion/>
-<Tabla/>
+<Navegacion CrearCategorias={Registrar}
+            />
+
 
 </div>
 
