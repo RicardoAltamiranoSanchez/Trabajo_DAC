@@ -1,71 +1,29 @@
 
 
-
-
-
-const Registrar=(props)=>{
+const Registrar=({Formulario})=>{
 
 return (
+ <li className="list__item list__item--click">
+                <div className="list__button list__button--click">
+                    <img src="./img/svg/docs.svg" className="list__img"/>
+                    <a href="#" className="nav__link"
+              onClick={Formulario}
+              >Registrar </a>
+                    <img src="./img/svg/arrow.svg" className="list__arrow" />
+                </div>
 
-<div className="row">
-<div className="col-7">
+                <ul className="list__show">
+                    <li className="list__inside">
+                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                    </li>
 
-<ul className="list-group list-group-flush">
-{ 
-state.map((s,i)=>(
-<li
-  key={s.id}
-	className="list-group-item"
->
-{/* de decimos si existe o esta en true que ponga la clase complete */}
-<p className={`${s.done && 'complete' }`}
-onClick={()=>{ CompletadoPendiente(s.id)}}
->{i+1}.{s.descripcion}</p>
-<button className="btn btn-danger"
+                    <li className="list__inside">
+                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                    </li>
+                </ul>
 
-onClick={()=>Eliminar(s.id)}
-
->
-Borrar
-</button>
-</li>
-))
-}
-</ul>
-
-
-
-</div>
-
-<div className="col-5 div-registro">
-<h4 className="titulo">Nueva Tarea </h4>
-
-<form onSubmit={accionesReducer}>
-<input type="text"
-		name="descripcion"
-		placeholder="Escribir.."
-		autoComplete="off"
-         className="from-control"
-        value={descripcion}
-        onChange={Guardar}
-/>
-<br/>
-<button 
-type="submit"
-className="btn btn-outline-primary mt-1 btn-block"> 
-
-Agregar
-</button>
-
-</form>
-</div>
-
-
-</div>
-
+            </li>
 )
-
-
 }
 
-export default Registrar
+export default Registrar;

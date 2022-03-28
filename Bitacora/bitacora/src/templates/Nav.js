@@ -1,15 +1,21 @@
-import React,{useState} from 'react';
+import React ,{Fragment,useState,useEffect} from 'react';
+import Registrar from '../layout/Registrar';
+import Header from '../layout/Header';
+import Tabla from '../layout/Tabla';
 import Swal from 'sweetalert2';
 
 
-const Registrar = async (e)=>{
 
+import './App.css';
+import './Navegacion.css';
 
-
-
-const Formulario=async()=>{
-
-     e.preventDefault();
+const Nav = ({formulario,setFormulario,datos,setDatos}) => {
+ 
+ 
+//Inicio de formulario
+const Formulario=async(e)=>{
+e.preventDefault();
+   
 //Inicio de input de tipo de problema
    const { value: tipo } = await Swal.fire({
   title: ' Tipo de Problema',
@@ -104,19 +110,65 @@ tipo,
 descripcion,
 status
 }
+setFormulario(NuevoRegistro);
+setDatos(...datos,NuevoRegistro)
 console.log(NuevoRegistro);
+console.log(datos);
 }
-return (
-    <li className="list__item list__item--click">
-                <div className="list__button list__button--click">
-                    <img src="./img/svg/docs.svg" className="list__img"/>
+
+//fin de formulario
+
+
+
+      console.log(formulario);
+
+
+   
+ console.log('dkdkdk'+formulario);
+   
+
+     
+return ( 
+<Fragment>
+<Header/>
+<div className="body-navegacion">
+<nav className="nav">
+        <ul className="list">
+<div className="div-logo">
+<img src="./img/LogoNuevoFinal-12.png" alt="Logo" className="Logo"/>
+</div>
+
+            <li className="list__item">
+                <div className="list__button">
+                    <img src="./img/svg/dashboard.svg" className="list__img"/>
                     <a href="#" className="nav__link"
-              onClick={Formulario}
-              >Registrar</a>
-                    <img src="./img/svg/arrow.svg" className="list__arrow" />
+                   
+                >Inicio</a>
+                </div>
+            </li>
+
+           <Registrar Formulario={Formulario}/>
+
+
+            <li className="list__item">
+                <div className="list__button">
+                    <img src="./img/svg/stats.svg" className="list__img"/>
+                    <a href="#" className="nav__link">Completados</a>
+                </div>
+            </li>
+
+            <li className="list__item list__item--click">
+                <div className="list__button list__button--click">
+                    <img src="./img/svg/bell.svg" className="list__img"/>
+                    <a href="#" className="nav__link">Pendientes</a>
+                    <img src="./img/svg/arrow.svg" className="list__arrow"/>
                 </div>
 
                 <ul className="list__show">
+                    <li className="list__inside">
+                        <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
+                    </li>
+
                     <li className="list__inside">
                         <a href="#" className="nav__link nav__link--inside">Estoy dentro</a>
                     </li>
@@ -129,11 +181,20 @@ return (
             </li>
 
 
-);
+            <li className="list__item">
+                <div className="list__button">
+                    <img src="./img/svg/message.svg" className="list__img"/>
+                    <a href="#" className="nav__link">Buscar</a>
+                </div>
+            </li>
 
+        </ul>
+    </nav>
+<Tabla datos={datos}/>
+</div>
 
-
-}
-
-
-export default Registrar;
+</Fragment>
+      );
+}  
+ 
+export default Nav;

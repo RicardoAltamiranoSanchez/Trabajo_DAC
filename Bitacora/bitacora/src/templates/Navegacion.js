@@ -1,11 +1,13 @@
-import { Fragment } from "react";
+import { Fragment,useEffect,useState} from "react";
 import Tabla from '../layout/Tabla';
 import './Navegacion.css';
+import Registrar from '../Hooks/Registrar';
 
+const Nav =(props)=>{ 
+ const [consulta, guardarConsulta] = useState(true);
+const {formulario}=Registrar;
 
-const Navegacion =(props)=>{ 
-const {CrearCategorias}=props;
-
+console.log("Desde la plantilla de navegacion"+formulario);
 
  return (
  
@@ -22,7 +24,7 @@ const {CrearCategorias}=props;
                 <div className="list__button">
                     <img src="./img/svg/dashboard.svg" className="list__img"/>
                     <a href="#" className="nav__link"
-                    onClick={<Tabla/>}
+                   
                 >Inicio</a>
                 </div>
             </li>
@@ -31,7 +33,7 @@ const {CrearCategorias}=props;
                 <div className="list__button list__button--click">
                     <img src="./img/svg/docs.svg" className="list__img"/>
                     <a href="#" className="nav__link"
-                onClick={CrearCategorias}
+              
               >Registrar </a>
                     <img src="./img/svg/arrow.svg" className="list__arrow" />
                 </div>
@@ -105,4 +107,4 @@ const {CrearCategorias}=props;
 
 }
 
-export default Navegacion;
+export default Nav;
